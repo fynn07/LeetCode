@@ -8,7 +8,7 @@ public:
         int a = 0;
         sort(nums.begin(), nums.end());
 
-        while(a != nums.size() - 1){
+        while(a != nums.size() - 2){
             int b = a + 1;
             int c = nums.size() - 1;
 
