@@ -9,18 +9,18 @@ public:
         sort(nums.begin(), nums.end());
 
         while(a != nums.size() - 2){
+            if (nums[a] > 0){
+                a++;
+                continue;
+            }
             int b = a + 1;
             int c = nums.size() - 1;
 
             while(b < c)
             {
-                vector<int> temp;
                 int sum = nums[a] + nums[b] + nums[c];
                 if (target == sum){
-                    temp.push_back(nums[a]);
-                    temp.push_back(nums[b]);
-                    temp.push_back(nums[c]);
-                    s.insert(temp);
+                    s.insert({nums[a], nums[b], nums[c]});
                     b++;
                     c--;
                 }
@@ -37,5 +37,6 @@ public:
         output.push_back(triplet);
     }
     return output;
-    }
+}     
+    
 };
