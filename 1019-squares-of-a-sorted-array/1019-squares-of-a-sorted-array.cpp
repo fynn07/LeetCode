@@ -7,10 +7,20 @@ public:
 
     vector<int> sortedSquares(vector<int>& nums) {
         vector<int> temp;
-        for(int i = 0; i < nums.size(); i++){
-            temp.push_back(square(nums[i]));
+        int left = 0;
+        int right = nums.size() - 1;
+
+        while(left <= right){
+            if(abs(nums[left]) > abs(nums[right])){
+                temp.push_back(square(nums[left]));
+                left++;
+            } 
+            else{
+                temp.push_back(square(nums[right]));           
+                right--;
+            }
         }
-        sort(temp.begin(), temp.end());
+        reverse(temp.begin(), temp.end());
         return temp;
     }
 };
