@@ -11,31 +11,17 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        vector<int> var;
+        ListNode* temp = head;
 
-        if(head == NULL){
-            return head;
-        }
-    
-        var.push_back(head->val);
-        head = head->next;
+        if(head == NULL){return head;}
 
-        while(head){
-            if(head->val != var.back()){
-                var.push_back(head->val);
+        while(temp && temp->next){
+            if(temp->next->val == temp->val){
+                temp->next = temp->next->next;
+                continue;
             }
-            head = head->next;
+            temp = temp->next;
         }
-        ListNode* output = new ListNode(0);
-        ListNode* tail = output;
-
-        for(int i = 0; i < var.size(); i++){
-            tail->next = new ListNode(var[i]);
-            tail = tail->next;
-        }
-
-        return output->next;
-
-        
+        return head;
     }
 };
