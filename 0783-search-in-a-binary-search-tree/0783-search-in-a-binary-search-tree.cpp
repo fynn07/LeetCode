@@ -15,6 +15,7 @@ public:
         if(!root){
             return NULL;
         }
+
         if(root->val > val){
             return searchBST(root->left, val);
         }
@@ -24,6 +25,5 @@ public:
         else{
             return root;
         }
-        
     }
 };
